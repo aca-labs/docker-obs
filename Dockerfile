@@ -20,6 +20,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
               ffmpeg \
               obs-studio \ 
               libqt5websockets5 \
+              wget \
     && apt-get install -f \
     && apt-get clean -y
 
