@@ -18,9 +18,16 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update -y \
     && apt-get install -y \
               ffmpeg \
-              obs-studio \
+              obs-studio \ 
+              libqt5websockets5 \
+    && apt-get install -f \
     && apt-get clean -y
-    
+
+# Install websocket control plugin
+RUN wget https://github.com/Palakis/obs-websocket/releases/download/4.3.2/obs-websocket_4.3.2-1_amd64.deb \
+    && dpkg -i obs-websocket_4.3.2-1_amd64.deb \\
+    && rm obs-websocket_4.3.2-1_amd64.deb
+
 # create user and map on host user
 # add new user to sudoers
 # TODO: uid / gid could be set with env var
