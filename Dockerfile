@@ -21,12 +21,12 @@ RUN export DEBIAN_FRONTEND=noninteractive \
               obs-studio \ 
               libqt5websockets5 \
               wget \
-    && apt-get install -f \
+    && apt-get install -f \ 
     && apt-get clean -y
 
 # Install websocket control plugin
 RUN wget https://github.com/Palakis/obs-websocket/releases/download/4.3.2/obs-websocket_4.3.2-1_amd64.deb \
-    && dpkg -i obs-websocket_4.3.2-1_amd64.deb \\
+    && dpkg -i obs-websocket_4.3.2-1_amd64.deb \
     && rm obs-websocket_4.3.2-1_amd64.deb
 
 # create user and map on host user
